@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @Service
 @FeignClient(name="RATINGSERVICE")
 public interface RatingService {
+
     @PostMapping("/ratings")
     public ResponseEntity<Rating> createRating(Rating rating);
 

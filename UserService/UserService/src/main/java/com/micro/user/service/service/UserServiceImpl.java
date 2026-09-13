@@ -38,11 +38,12 @@ public class UserServiceImpl implements UserService {
     }
 
 
+
     @Override
     public User findById(UUID userId) {
         User user = userRepo.findById(userId).orElseThrow(() ->
                 new ResourseNotFoundException("User with given id not found on server !! : " + userId));
-        Rating[] ratingOfUser = ratingServiceClient.getRatingsByUser(user.getUserId());    
+        Rating[] ratingOfUser = ratingServiceClient.getRatingsByUser(user.getUserId());
         log.info("Ratings of user: {}", ratingOfUser);
         List<Rating> ratings = Arrays.stream(ratingOfUser).toList();
         List<Rating> ratingList = ratings.stream() .map(rating -> {
