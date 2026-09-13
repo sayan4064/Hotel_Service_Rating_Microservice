@@ -11,10 +11,8 @@ import java.util.UUID;
 
 @Service
 public class RatingServiceClient {
-
     @Autowired
     private RestTemplate restTemplate;
-
     @Retryable(
             retryFor= RuntimeException.class,
             maxAttempts = 3,
