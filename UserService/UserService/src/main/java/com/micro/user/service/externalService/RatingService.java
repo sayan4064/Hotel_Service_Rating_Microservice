@@ -13,6 +13,7 @@ public interface RatingService {
     @PostMapping("/ratings")
     public ResponseEntity<Rating> createRating(Rating rating);
 
+
     @PutMapping("/rating/{ratingId}")
     public ResponseEntity<Rating> updateRating(@PathVariable("ratingId") String ratingId, @RequestBody Rating rating);
 

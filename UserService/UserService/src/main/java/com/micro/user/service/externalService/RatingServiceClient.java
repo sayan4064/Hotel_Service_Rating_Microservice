@@ -16,7 +16,9 @@ public class RatingServiceClient {
     private RestTemplate restTemplate;
 
     @Retryable(
-            retryFor= RuntimeException.class,maxAttempts = 3,backoff = @Backoff(delay = 2000)
+            retryFor= RuntimeException.class,
+            maxAttempts = 3,
+            backoff = @Backoff(delay = 2000)
     )
     public Rating[] getRatingsByUser(UUID userId){
         return restTemplate.getForObject("http://RATINGSERVICE/ratings/users/" + userId, Rating[].class);
