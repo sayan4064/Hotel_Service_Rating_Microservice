@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/ratings")
@@ -30,13 +31,13 @@ public class RatingController {
 
     //get all of user
     @GetMapping("/users/{userId}")
-    public ResponseEntity<List<Rating>> getRatingsByUserId(@PathVariable String userId) {
+    public ResponseEntity<List<Rating>> getRatingsByUserId(@PathVariable UUID userId) {
         return ResponseEntity.ok(ratingService.getRatingsByUserId(userId));
     }
 
     //get all of hotels
     @GetMapping("/hotels/{hotelId}")
-    public ResponseEntity<List<Rating>> getRatingsByHotelId(@PathVariable String hotelId) {
+    public ResponseEntity<List<Rating>> getRatingsByHotelId(@PathVariable UUID hotelId) {
         return ResponseEntity.ok(ratingService.getRatingsByHotelId(hotelId));
     }
 

@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
+
 @Service
 public class RatingServiceImpl implements RatingService {
     @Autowired
@@ -16,12 +18,12 @@ public class RatingServiceImpl implements RatingService {
     }
 
     @Override
-    public List<Rating> getRatingsByUserId(String userId) {
+    public List<Rating> getRatingsByUserId(UUID userId) {
         return ratingRepository.getRatingsByUserId(userId);
     }
 
     @Override
-    public List<Rating> getRatingsByHotelId(String hotelId) {
+    public List<Rating> getRatingsByHotelId(UUID hotelId) {
         return ratingRepository.getRatingsByHotelId(hotelId);
     }
 
